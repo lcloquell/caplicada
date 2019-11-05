@@ -51,6 +51,23 @@ function palin() {
 	    	echo "Es palindromo"
 	fi
 }
+
+function cant(){
+	echo "Ingrese el nombre del archivo:"
+	read nombre
+	echo `wc -l $nombre|awk '{print $1}'`
+}
+
+function ordena() {
+	for ((i=0;i<=4;i++))
+	do
+		read -p "Ingrese un numero:  " num
+		lista[$i]=${num}
+	done
+	ordena=($(for i in "${lista[@]}"; do echo $i; done | sort))
+	echo "${lista[@]}"
+}
+
 function saluda() {
 	who=$1
 	echo "Bye $who"
@@ -65,6 +82,9 @@ while true; do
 		1) fibo;;
 		2) invertido;;
 		3) palin;;
+		4) cant;;
+		5) ordena;;
+		6) cantidad;;
 		7) saluda `whoami`
 			break;; 
 	esac
