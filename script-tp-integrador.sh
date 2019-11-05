@@ -10,6 +10,20 @@ function menu(){
 	echo "7- Salir"
 }
 
+function fibo(){
+	x=0
+	y=1
+	echo "Ingrese el numero:"
+	read num
+	echo "Serie de fibo:"
+	for ((i=0; i<num; i++))
+	do
+		echo "$x"
+		t=$((x+y))
+		x=$y
+		y=$t
+	done
+}
 function saluda() {
 	who=$1
 	echo "Bye $who"
