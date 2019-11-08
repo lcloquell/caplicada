@@ -35,21 +35,15 @@ function palin() {
 	largo=0
 	i=0
 	read -p "Ingrese la cadena: " cadena
-	largo=`echo $cadena | wc -m`
-	largo=`expr $largo - 1`
-	if [ ! $largo -eq 0 ]; then
-		med=`expr $largo / 2`
-	    	while [ $i -le $med ]; do
-        		ca=`echo $cadena|cut -c$i`
-        		de=`echo $cadena|cut -c$largo`
-	        	if [ $ca != $de ]; then
-        	    		echo "No es palindromo"
-        		fi
-        		i=`expr $i + 1`
-	        	largo=`expr $largo - 1`
-	    	done
-	    	echo "Es palindromo"
-	fi
+	anedac=""
+			for i in $(seq 0 ${#cadena}); do
+				anedac=${cadena:$i:1}$anedac
+			done
+			if [ "$cadena" = "$anedac" ]; then
+				echo -e "\nEs palindromo"
+			else
+				echo -e "\nNo es palindromo"
+			fi
 }
 
 function cant(){
